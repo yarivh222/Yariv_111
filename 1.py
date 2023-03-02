@@ -10,6 +10,11 @@ def test_invalid_IP():
     response_data = response.json()
     assert 'error' in response_data
 
+# Scenario 3: Test for a missing IP address
+def test_missing_ip():
+    response = requests.get(f"{base_url}geo")
+    assert response.status_code == 400
+    assert "error" in response.json()
 
 # Scenario 4: Test for a specific language
 def test_language():
